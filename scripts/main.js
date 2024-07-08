@@ -2,6 +2,8 @@
 const start = async () => {
   let algoValue = Number(document.querySelector(".algo-menu").value);
   let speedValue = Number(document.querySelector(".speed-menu").value);
+  
+  let orderValue= Number(document.querySelector(".order-menu").value);
 
   if (speedValue === 0) {
     speedValue = 1;
@@ -11,12 +13,26 @@ const start = async () => {
     return;
   }
 
+  if(orderValue ===0){
+    alert("No Order Selected");
+    return;
+  }
+
   let algorithm = new sortAlgorithms(speedValue);
-  if (algoValue === 1) await algorithm.SelectionSort();
-  if (algoValue === 2) await algorithm.BubbleSort();
-  if (algoValue === 3) await algorithm.InsertionSort();
-  if (algoValue === 4) await algorithm.MergeSort();
-  if (algoValue === 5) await algorithm.QuickSort();
+  if (algoValue === 1 && orderValue === 1) await algorithm.SelectionSort1();
+  if (algoValue === 1 && orderValue === 2) await algorithm.SelectionSort2();
+
+  if (algoValue === 2 && orderValue === 1) await algorithm.BubbleSort1();
+  if (algoValue === 2 && orderValue === 2) await algorithm.BubbleSort2();
+
+  if (algoValue === 3 && orderValue === 1) await algorithm.InsertionSort1();
+  if (algoValue === 3 && orderValue === 2) await algorithm.InsertionSort2();
+
+  if (algoValue === 4 && orderValue === 1) await algorithm.MergeSort1();
+  if (algoValue === 4 && orderValue === 2) await algorithm.MergeSort2();
+
+  if (algoValue === 5 && orderValue === 1) await algorithm.QuickSort1();
+  if (algoValue === 5 && orderValue === 2) await algorithm.QuickSort2();
 };
 
 const RenderScreen = async () => {
