@@ -25,11 +25,21 @@ class Helper {
         });
     }
 
-    compare = async (index1, index2) => {
+    compare1 = async (index1, index2) => {
         await this.pause();
         let value1 = Number(this.list[index1].getAttribute("value"));
         let value2 = Number(this.list[index2].getAttribute("value"));
         if(value1 > value2) {
+            return true;
+        }
+        return false;
+    }
+
+    compare2 = async (index1, index2) => {
+        await this.pause();
+        let value1 = Number(this.list[index1].getAttribute("value"));
+        let value2 = Number(this.list[index2].getAttribute("value"));
+        if(value1 < value2) {
             return true;
         }
         return false;
